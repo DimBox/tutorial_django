@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block extra-head %}
+<script>
+   var colors_var = '{{ json_colors|escapejs }}';
+   var colors_var_parsed = jQuery.parseJSON(colors_var);
+   $(':root').css('--project-color', colors_var_parsed);
+</script>
+
+{% endblock %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block logo %} logo {% endblock %}
+{% block menu %}
+<div class="navbar-nav-scroll">
+  <ul class="navbar-nav bd-navbar-nav flex-row">
+    <li class="nav-item">
+      <a class="nav-link" href="/home">Домой</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/admin">Admin</a>
+    </li>
+  </ul>
+</div>
+<div class="navbar-nav flex-row ml-md-auto d-md-flex">
+  <a class="btn btn-bd-change d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/change">Изменить</a>
+</div>
+
+{% endblock %}
+{% block content %}
+<div class="text-center">
+  <h4>Проще простого!</h4>
+  <p>{{value|first}}</p>
+  <br/>
+  <h4>Как это работает?</h4>
+  <p>{{value|last}}</p>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+  <aside>
+    <span class="text-uppercase">История изменений</span>
+    <ul class="history">
+      {% for item in colors %}
+        <li style="color:{{item}}">{{item}}</li>
+      {% endfor %}
+    </ul>
+  </aside>
+
+
+
+{% endblock %}
+{% block footer %}
+<div class="text-center">
+  <h2>подвал</h2>
+</div>
+{% endblock %}

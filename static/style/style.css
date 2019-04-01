@@ -1,0 +1,110 @@
+:root {
+    --text-body: #212529;
+    --text-color-dark: rgba(255, 255, 255, 0.5);
+    --text-color-dark-hover: rgba(255, 255, 255, 0.75);
+    --project-color: #563d7c;
+    --text-nav-color: #cbbde2;
+}
+
+
+body {
+ margin: 0;
+ font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+ font-size: 1rem;
+ font-weight: 400;
+ line-height: 1.5;
+ color: var(--text-body);
+ text-align: left;
+}
+.text-center{
+  text-align: center;
+}
+
+.navbar, .logo, .footer{
+  background-color: var(--project-color);
+}
+
+/* NAVIGATION BAR */
+.bd-navbar .navbar-nav .nav-link{
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: var(--text-nav-color);
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--text-color-dark);
+}
+.navbar-expand .navbar-nav .nav-link{
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+.navbar-nav .nav-link{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.nav-link{
+  display: block;
+  padding: .5rem 1rem;
+}
+
+a:not([href]):not([tabindex]) {
+  color: var(--text-color-dark);
+}
+.btn-bd-change:active, .btn-bd-change:hover {
+    color: var(--text-body);
+    background-color: var(--text-color-dark-hover);
+    border-color: var(--text-color-dark-hover);
+}
+.btn:hover {
+    color: var(--text-body);
+    text-decoration: none;
+}
+
+.btn-bd-change {
+    font-weight: 600;
+    color: var(--text-color-dark);
+    border-color: var(--text-color-dark);
+}
+.ml-md-3, .mx-md-3 {
+    margin-left: 1rem !important;
+}
+.mb-md-0, .my-md-0 {
+    margin-bottom: 0 !important;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem !important;
+}
+.d-lg-inline-block {
+    display: inline-block !important;
+}
+.d-none {
+    display: none !important;
+}
+
+.text-white {
+  color: white;
+}
+
+/* SIDE BAR */
+.bd-sidebar {
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding: 0 30px 0 30px;
+  border-width: 5px;
+  border-left-style: solid;
+  border-color: #563d7c;
+  overflow: auto;
+}
+
+/* CONTENT */
+.bd-content {
+  padding: 0 40px;
+  background-color: white;
+  border: none;
+
+}
+
+/* FOOTER */
+footer {
+  color: var(--text-color-dark);
+}
