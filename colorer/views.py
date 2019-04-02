@@ -28,8 +28,17 @@ def random_color(prefix, maxlen):
     symbols = '0123456789ABCDF'
     return prefix + "".join([random.choice(symbols) for i in range(maxlen)])
 
+
+def detect_text_color(color):
+    _r = int.from_bytes(bytes.fromhex(color[1:3]), 'big')
+    _g = int.from_bytes(bytes.fromhex(color[3:5]), 'big')
+    _b = int.from_bytes(bytes.fromhex(color[5:7]), 'big')
+    average_weigh = (_r % 16) / (_g % 16 +1) 
+    return '#FFFFFF'
+
 def change_color(request):
     new_color = random_color('#',6)
+    text_color = detect_text_color(new_color)
     context['colors'].append(new_color)
     context['json_colors'] = jsonpickle.encode(new_color)
     return redirect(make_up)

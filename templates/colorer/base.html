@@ -32,8 +32,12 @@
   <h4>Проще простого!</h4>
   <p>{{value|first}}</p>
   <br/>
+  {% if colors|length > 1%}
   <h4>Как это работает?</h4>
+  {% endif %}
+  {% if colors|length > 2%}
   <p>{{value|last}}</p>
+  {% endif %}
 </div>
 {% endblock %}
 
@@ -52,6 +56,22 @@
 {% endblock %}
 {% block footer %}
 <div class="text-center">
-  <h2>подвал</h2>
+  <div class="project text-center">
+    <h4>В проекте использованы</h4>
+    <ul class="modules">
+      <li class="foot-link">
+        <a href="https://www.python.org/getit/">Python3</a>
+      </li>
+      <li class="foot-link">
+        <a href="https://www.djangoproject.com/download/">Django2</a>
+      </li>
+      <li class="foot-link">
+        <a href="https://getbootstrap.com">Bootstrap4</a>
+      </li>
+      <li class="foot-link">
+        <a href="https://jquery.com/download/">jQuery3</a>
+      </li>
+    </ul>
+  </div>
 </div>
 {% endblock %}

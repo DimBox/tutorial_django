@@ -47,7 +47,7 @@ body {
 }
 
 a:not([href]):not([tabindex]) {
-  color: var(--text-color-dark);
+  color: var(--text-color-dark-hover);
 }
 .btn-bd-change:active, .btn-bd-change:hover {
     color: var(--text-body);
@@ -61,8 +61,8 @@ a:not([href]):not([tabindex]) {
 
 .btn-bd-change {
     font-weight: 600;
-    color: var(--text-color-dark);
-    border-color: var(--text-color-dark);
+    color: var(--text-color-dark-hover);
+    border-color: var(--text-color-dark-hover);
 }
 .ml-md-3, .mx-md-3 {
     margin-left: 1rem !important;
@@ -106,5 +106,20 @@ a:not([href]):not([tabindex]) {
 
 /* FOOTER */
 footer {
+  color: var(--text-color-dark-hover);
+}
+
+.project {
+  top: 0;
+  left: 0;
+  padding: 0 30px 0 30px;
+  width: 400px;
+  border: none;
+  overflow: auto;
+}
+.modules .foot-link a{
   color: var(--text-color-dark);
 }
+
+.modules .foot-link a:hover {
+    color: var(text-color-dark-hover);
