@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.template import loader
+from . import compl
 import jsonpickle
 import random
 
-color_history = ['#563d7c']
+color_history = [{'bg': '#563d7c', 'txt': '#000000'}]
 article1 = 'Возникало ли у Вас желание изменить цветовую гамму страницы? Данный проект создан в образовательных целях. Здесь можно легко изменить цветовую гамму страницы, нажав на кнопку "Изменить". Вернуться на исходный вариант можно по ссылке в меню "Домой"'
 article2 = 'url ссылка "Изменить" перенаправляет нас на страницу /change. Через маршрутизацию urls.py мы выходим на метод views.py, где производится случайная генерация цвета. Сформированный параметр сериализуется в json для дальнейшей его передачи в jquery с целью избежать расхождения в типах переменных. Как локальный параметр этот json передается в шаблон страницы, где принимается переменной javascript и применяется через jquery в css стиле. Для удобства изменения, в css созданы переменные в разделе :root.'
 
@@ -15,7 +16,7 @@ context = {
 }
 # Create your views here.
 def home_page(request):
-    color_history = ['#563d7c']
+    color_history = [{'bg': '#563d7c', 'txt': '#000000'}]
     context['colors'] = color_history
     context['json_colors'] = jsonpickle.encode(color_history)
     return redirect(make_up)
@@ -30,15 +31,11 @@ def random_color(prefix, maxlen):
 
 
 def detect_text_color(color):
-    _r = int.from_bytes(bytes.fromhex(color[1:3]), 'big')
-    _g = int.from_bytes(bytes.fromhex(color[3:5]), 'big')
-    _b = int.from_bytes(bytes.fromhex(color[5:7]), 'big')
-    average_weigh = (_r % 16) / (_g % 16 +1) 
-    return '#FFFFFF'
+    return compl.contrast(color)
 
 def change_color(request):
     new_color = random_color('#',6)
     text_color = detect_text_color(new_color)
-    context['colors'].append(new_color)
+    context['colors'].append({'bg': new_color, 'txt': text_color})
     context['json_colors'] = jsonpickle.encode(new_color)
     return redirect(make_up)

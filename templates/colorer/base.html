@@ -3,7 +3,8 @@
 <script>
    var colors_var = '{{ json_colors|escapejs }}';
    var colors_var_parsed = jQuery.parseJSON(colors_var);
-   $(':root').css('--project-color', colors_var_parsed);
+   $(':root').css('--project-color', colors_var_parsed.bg);
+   $(':root').css('--text-color-dark', colors_var_parsed.txt);
 </script>
 
 {% endblock %}
@@ -46,7 +47,7 @@
     <span class="text-uppercase">История изменений</span>
     <ul class="history">
       {% for item in colors %}
-        <li style="color:{{item}}">{{item}}</li>
+        <li style="color:{{item.txt}}; background: {{item.bg}}">{{item.bg}}</li>
       {% endfor %}
     </ul>
   </aside>
