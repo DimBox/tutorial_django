@@ -111,3 +111,8 @@ def srgb_to_rgb(value):
 def rgb_to_hex(rgb):
     return '#%02x%02x%02x' % rgb
 
+def hex_to_rgba(value, a):
+    value = value.lstrip('#')
+    lv = len(value)
+    li = list(int(value[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
+    return 'rgba({}, {}, {}, {})'.format(li[0], li[1], li[2], a)

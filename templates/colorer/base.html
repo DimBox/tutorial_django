@@ -5,13 +5,15 @@
    var colors_var_parsed = jQuery.parseJSON(colors_var);
    $(':root').css('--project-color', colors_var_parsed.bg);
    $(':root').css('--text-color-dark', colors_var_parsed.txt);
+   $(':root').css('--text-color-dark-hover', colors_var_parsed.txth);
+    $(':root').css('--btn-text-body', colors_var_parsed.txtb);
 </script>
 
 {% endblock %}
 
 {% block title %}{{title}}{% endblock %}
 
-{% block logo %} logo {% endblock %}
+{% block logo %} <img src="{{ MEDIA_URL }}logo.svg" width="36" height="36" class="d-block"> {% endblock %}
 {% block menu %}
 <div class="navbar-nav-scroll">
   <ul class="navbar-nav bd-navbar-nav flex-row">
