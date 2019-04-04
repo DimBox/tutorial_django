@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block extra-head %}
 <script>
    var colors_var = '{{ json_colors|escapejs }}';
@@ -13,7 +14,7 @@
 
 {% block title %}{{title}}{% endblock %}
 
-{% block logo %} <img src="{{ MEDIA_URL }}logo.svg" width="36" height="36" class="d-block"> {% endblock %}
+
 {% block menu %}
 <div class="navbar-nav-scroll">
   <ul class="navbar-nav bd-navbar-nav flex-row">

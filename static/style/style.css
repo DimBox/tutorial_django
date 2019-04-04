@@ -19,7 +19,11 @@ body {
 .text-center{
   text-align: center;
 }
-
+.img-circle {
+ border: 1;
+ border-style: solid;
+ border-color: var(--text-color-dark-hover);
+}
 .navbar, .logo, .footer{
   background-color: var(--project-color);
 }
