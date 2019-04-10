@@ -19,7 +19,7 @@
 <div class="navbar-nav-scroll">
   <ul class="navbar-nav bd-navbar-nav flex-row">
     <li class="nav-item">
-      <a class="nav-link" href="colorer/home">Домой</a>
+      <a class="nav-link" href="/home">Домой</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/admin">Admin</a>
@@ -27,21 +27,14 @@
   </ul>
 </div>
 <div class="navbar-nav flex-row ml-md-auto d-md-flex">
-  <a class="btn btn-bd-change d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="colorer/change">Изменить</a>
+  <a class="btn btn-bd-change d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/change">Изменить</a>
 </div>
 
 {% endblock %}
 {% block content %}
 <div class="text-center">
-  <h4>Проще простого!</h4>
+  <h4>Используем AJAX!</h4>
   <p>{{value|first}}</p>
-  <br/>
-  {% if colors|length > 1%}
-  <h4>Как это работает?</h4>
-  {% endif %}
-  {% if colors|length > 2%}
-  <p>{{value|last}}</p>
-  {% endif %}
 </div>
 {% endblock %}
 
@@ -74,6 +67,9 @@
       </li>
       <li class="foot-link">
         <a href="https://jquery.com/download/">jQuery3</a>
+      </li>
+            <li class="foot-link">
+        <a href="#">Ajax</a>
       </li>
     </ul>
   </div>

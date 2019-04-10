@@ -20,9 +20,13 @@ from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from colorer import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include('colorer.urls')),
+    url(r'^colorer', include('colorer.urls')),
+    url(r'^ajax_colorer/', include('ajax_colorer.urls')),
+    url(r'^$', views.home_page, name='Home'),
 ]
 
 if settings.DEBUG:
