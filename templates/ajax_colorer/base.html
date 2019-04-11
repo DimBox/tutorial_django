@@ -2,12 +2,29 @@
 
 {% block extra-head %}
 <script>
-   var colors_var = '{{ json_colors|escapejs }}';
-   var colors_var_parsed = jQuery.parseJSON(colors_var);
-   $(':root').css('--project-color', colors_var_parsed.bg);
-   $(':root').css('--text-color-dark', colors_var_parsed.txt);
-   $(':root').css('--text-color-dark-hover', colors_var_parsed.txth);
-    $(':root').css('--btn-text-body', colors_var_parsed.txtb);
+  $(document).ready(function(){
+    function colorer(e){
+      e.preventDefault();
+      $.ajax({
+        method: 'GET',
+        url: '/ajax_colorer/change',
+        dataType: 'json',
+        data: JSON.parse(JSON.stringify({'bg': '#000000', 'txt': 'rgba(255, 255, 255, 0.5)', 'txth': 'rgba(255, 255, 255, 0.7)',
+                      'texb': '#FFFFFF'})),
+        success: function (data) {
+          console.log(data);
+          $(':root').css('--project-color', data.bg);
+          $(':root').css('--text-color-dark', data.txt);
+          $(':root').css('--text-color-dark-hover', data.txth);
+          $(':root').css('--btn-text-body', data.txtb);
+        },
+        error: function(date){
+          console.log(data);
+        }
+      })
+    }
+    $('.btn-bd-change').click(colorer);
+  })
 </script>
 
 {% endblock %}
@@ -19,7 +36,7 @@
 <div class="navbar-nav-scroll">
   <ul class="navbar-nav bd-navbar-nav flex-row">
     <li class="nav-item">
-      <a class="nav-link" href="ajax_colorer/home">Домой</a>
+      <a class="nav-link" href="/ajax_colorer">Домой</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/colorer/home">Калейдоскоп</a>
@@ -30,7 +47,7 @@
   </ul>
 </div>
 <div class="navbar-nav flex-row ml-md-auto d-md-flex">
-  <a class="btn btn-bd-change d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="ajax_colorer/change">Изменить</a>
+  <a class="btn btn-bd-change d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/ajax_colorer/change">Изменить</a>
 </div>
 
 {% endblock %}
