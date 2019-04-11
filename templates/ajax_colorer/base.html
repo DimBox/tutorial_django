@@ -9,14 +9,15 @@
         method: 'GET',
         url: '/ajax_colorer/change',
         dataType: 'json',
-        data: JSON.parse(JSON.stringify({'bg': '#000000', 'txt': 'rgba(255, 255, 255, 0.5)', 'txth': 'rgba(255, 255, 255, 0.7)',
-                      'texb': '#FFFFFF'})),
+        data: JSON.parse(JSON.stringify({'bg': '', 'txt': '', 'txth': '', 'texb': ''})),
         success: function (data) {
           console.log(data);
           $(':root').css('--project-color', data.bg);
           $(':root').css('--text-color-dark', data.txt);
           $(':root').css('--text-color-dark-hover', data.txth);
           $(':root').css('--btn-text-body', data.txtb);
+          var li_ = $('<li></li>').text(data.bg);
+          $('.history li:last').after(li_);
         },
         error: function(date){
           console.log(data);
