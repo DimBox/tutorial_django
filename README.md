@@ -3,7 +3,7 @@ What's this?
 ------------
 tutorial django python and others web features
 
-1. Colorer
+1. Colorer & AJAX-Colorer
 -----------------
 
 Had you ever thought, the offered site theme not pleased you? 
@@ -29,3 +29,7 @@ So the second task is -- How serialize variables in python and deserialize them 
 JSON could does this task easily, so I have adding support jsonpickle in the project. jsonpickle.encode() serializes values in python, and  jQuery.parseJSON() deserializes them in javascript section of html.
 The third task is -- How simplify changing of DOM objects and do this change in one place?
 CSS offers root: definition of variables, so I have defining some variables there and using them in colors section of objects css. This way allows make one changing in many places in one act.
+
+4. Ajax-colorer 
+-------------------
+ In addition to the main idea the ajax-colorer implements changing context without reload page.
