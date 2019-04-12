@@ -6,17 +6,17 @@
     function colorer(e){
       e.preventDefault();
       $.ajax({
-        method: 'GET',
+        method: 'POST',
         url: '/ajax_colorer/change',
         dataType: 'json',
-        data: JSON.parse(JSON.stringify({'bg': '', 'txt': '', 'txth': '', 'texb': ''})),
+        data: JSON.stringify({'bg': '', 'txt': '', 'txth': '', 'texb': ''}),
         success: function (data) {
           console.log(data);
           $(':root').css('--project-color', data.bg);
           $(':root').css('--text-color-dark', data.txt);
           $(':root').css('--text-color-dark-hover', data.txth);
           $(':root').css('--btn-text-body', data.txtb);
-          var li_ = $('<li></li>').text(data.bg);
+          var li_ = $('<li style="color:' + data.txt + '; background: ' + data.bg + '"></li>').text(data.bg);
           $('.history li:last').after(li_);
         },
         error: function(date){
@@ -55,6 +55,7 @@
 {% block content %}
 <div class="text-center">
   <h4>Используем AJAX</h4>
+  <br/>
   <p>{{value|first}}</p>
 </div>
 {% endblock %}
@@ -89,10 +90,7 @@
       <li class="foot-link">
         <a href="https://jquery.com/download/">jQuery3</a>
       </li>
-            <li class="foot-link">
-        <a href="#">Ajax</a>
-      </li>
-    </ul>
+     </ul>
   </div>
 </div>
 {% endblock %}
